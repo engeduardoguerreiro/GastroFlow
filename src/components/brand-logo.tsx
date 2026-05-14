@@ -27,10 +27,10 @@ export function BrandNavLogo({ className, priority }: { className?: string; prio
   return (
     <span className={cn("inline-flex items-center gap-3", className)}>
       <Image
-        src="/brand/gastroflow-mark-dark.png"
+        src="/brand/gastroflow-mark-nav.png"
         alt=""
-        width={555}
-        height={420}
+        width={829}
+        height={662}
         priority={priority}
         className="h-12 w-14 rounded-xl border border-white/12 object-cover shadow-lg shadow-black/20"
       />
@@ -39,7 +39,7 @@ export function BrandNavLogo({ className, priority }: { className?: string; prio
           Gastro<span className="text-[#F5B342]">Flow</span>
         </span>
         <span className="font-secondary mt-1 hidden text-[0.58rem] font-bold uppercase tracking-[0.28em] text-[#E26A2C] sm:block">
-          Restaurant OS
+          Gestão para restaurantes
         </span>
       </span>
     </span>
