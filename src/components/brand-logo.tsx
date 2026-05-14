@@ -4,26 +4,24 @@ import { cn } from "@/lib/utils";
 export function BrandLogo({
   className,
   priority,
-  showTagline: _showTagline = false,
+  showTagline,
 }: {
   className?: string;
   priority?: boolean;
   showTagline?: boolean;
 }) {
-  void _showTagline;
-  return (
-    <Image
-      src="/brand/gastroflow-logo-dark-cropped.png"
-      alt="GastroFlow"
-      width={1006}
-      height={773}
-      priority={priority}
-      className={cn("rounded-xl border border-white/10 object-contain shadow-lg shadow-black/20", className)}
-    />
-  );
+  return <BrandNavLogo className={className} priority={priority} showTagline={showTagline} />;
 }
 
-export function BrandNavLogo({ className, priority }: { className?: string; priority?: boolean }) {
+export function BrandNavLogo({
+  className,
+  priority,
+  showTagline = true,
+}: {
+  className?: string;
+  priority?: boolean;
+  showTagline?: boolean;
+}) {
   return (
     <span className={cn("inline-flex items-center gap-3", className)}>
       <Image
@@ -38,9 +36,11 @@ export function BrandNavLogo({ className, priority }: { className?: string; prio
         <span className="block text-[1.35rem] font-black tracking-tight text-[#FFF6E9]">
           Gastro<span className="text-[#F5B342]">Flow</span>
         </span>
-        <span className="font-secondary mt-1 hidden text-[0.58rem] font-bold uppercase tracking-[0.28em] text-[#E26A2C] sm:block">
-          Gestão para restaurantes
-        </span>
+        {showTagline && (
+          <span className="font-secondary mt-1 hidden text-[0.58rem] font-bold uppercase tracking-[0.22em] text-[#E26A2C] sm:block">
+            Gestão para restaurantes
+          </span>
+        )}
       </span>
     </span>
   );

@@ -240,7 +240,7 @@ export default function LandingPage() {
 
       <footer className="border-t border-white/10 bg-[#0F1720]">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5 px-5 py-7 text-sm text-slate-300">
-          <BrandLogo className="h-9 w-auto" />
+          <BrandLogo />
           <div className="font-secondary flex flex-wrap gap-6 uppercase tracking-[0.18em]">
             <span className="flex items-center gap-2"><Pizza className="h-4 w-4 text-[#E26A2C]" /> Pizzarias</span>
             <span className="flex items-center gap-2"><Martini className="h-4 w-4 text-[#F5B342]" /> Bares</span>

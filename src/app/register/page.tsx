@@ -6,7 +6,7 @@ export default function RegisterPage() {
   return (
     <main className="grid min-h-screen place-items-center px-5 py-10">
       <form action={register} className="glass w-full max-w-2xl rounded-2xl p-6">
-        <BrandLogo className="mb-6 h-12 w-auto" priority />
+        <BrandLogo className="mb-6" priority />
         <h1 className="text-3xl font-black">Criar conta e restaurante</h1>
         <p className="font-secondary mt-2 text-slate-300">O primeiro usuário será owner do restaurante.</p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">

@@ -20,7 +20,7 @@ export default async function RestaurantMenuPage({ params, searchParams }: { par
       <section className="relative bg-[#0F1720] text-white">
         <div className="absolute inset-0 opacity-30" style={{ backgroundImage: current.cover_url ? `url(${current.cover_url})` : "linear-gradient(135deg,#E26A2C,#0F1720)", backgroundSize: "cover", backgroundPosition: "center" }} />
         <div className="relative mx-auto max-w-6xl px-5 py-12">
-          <BrandLogo className="mb-8 h-11 w-auto" priority />
+          <BrandLogo className="mb-8" priority />
           <div className="flex flex-wrap items-center gap-4">
             <div className="grid h-20 w-20 place-items-center rounded-2xl bg-[#FFF6E9] text-2xl font-black text-[#E26A2C]">{current.logo_url ? "Logo" : current.name.slice(0, 2)}</div>
             <div>
