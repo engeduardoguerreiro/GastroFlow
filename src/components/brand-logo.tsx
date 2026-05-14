@@ -25,12 +25,12 @@ export function BrandNavLogo({
   return (
     <span className={cn("inline-flex items-center gap-3", className)}>
       <Image
-        src="/brand/gastroflow-mark-nav.png"
+        src="/brand/gastroflow-mark-source.png"
         alt=""
-        width={829}
-        height={662}
+        width={1254}
+        height={1254}
         priority={priority}
-        className="h-12 w-14 rounded-xl border border-white/12 object-cover shadow-lg shadow-black/20"
+        className="h-12 w-14 rounded-xl border border-white/12 object-contain shadow-lg shadow-black/20"
       />
       <span className="leading-none">
         <span className="block text-[1.35rem] font-black tracking-tight text-[#FFF6E9]">
