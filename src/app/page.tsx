@@ -49,7 +49,7 @@ export default function LandingPage() {
       <header className="sticky top-0 z-30 border-b border-white/10 bg-[#0F1720]/82 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3">
           <Link href="/" aria-label="GastroFlow">
-            <BrandLogo className="h-11 w-auto" priority />
+            <BrandLogo className="h-9 w-auto" priority />
           </Link>
           <div className="font-secondary hidden items-center gap-7 text-sm font-semibold text-slate-300 lg:flex">
             <a href="#plataforma" className="hover:text-[#F5B342]">Plataforma</a>
@@ -240,7 +240,7 @@ export default function LandingPage() {
 
       <footer className="border-t border-white/10 bg-[#0F1720]">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5 px-5 py-7 text-sm text-slate-300">
-          <BrandLogo className="h-11 w-auto" />
+          <BrandLogo className="h-9 w-auto" />
           <div className="font-secondary flex flex-wrap gap-6 uppercase tracking-[0.18em]">
             <span className="flex items-center gap-2"><Pizza className="h-4 w-4 text-[#E26A2C]" /> Pizzarias</span>
             <span className="flex items-center gap-2"><Martini className="h-4 w-4 text-[#F5B342]" /> Bares</span>

@@ -6,7 +6,7 @@ export default function LoginPage() {
   return (
     <main className="grid min-h-screen place-items-center px-5">
       <form action={signIn} className="glass w-full max-w-md rounded-2xl p-6">
-        <BrandLogo className="mb-6 h-16 w-auto" priority />
+        <BrandLogo className="mb-6 h-12 w-auto" priority />
         <h1 className="text-3xl font-black">Entrar</h1>
         <p className="font-secondary mt-2 text-slate-300">Acesse o painel do restaurante.</p>
         <div className="mt-6 space-y-4">
