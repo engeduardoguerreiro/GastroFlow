@@ -13,10 +13,10 @@ export function BrandLogo({
   void _showTagline;
   return (
     <Image
-      src="/brand/gastroflow-logo-alpha-cropped.png"
+      src="/brand/gastroflow-logo-dark-cropped.png"
       alt="GastroFlow"
       width={1006}
-      height={781}
+      height={773}
       priority={priority}
       className={cn("h-auto w-auto object-contain", className)}
     />
