@@ -23,6 +23,29 @@ export function BrandLogo({
   );
 }
 
+export function BrandNavLogo({ className, priority }: { className?: string; priority?: boolean }) {
+  return (
+    <span className={cn("inline-flex items-center gap-3", className)}>
+      <Image
+        src="/brand/gastroflow-mark-dark.png"
+        alt=""
+        width={555}
+        height={420}
+        priority={priority}
+        className="h-12 w-14 rounded-xl border border-white/12 object-cover shadow-lg shadow-black/20"
+      />
+      <span className="leading-none">
+        <span className="block text-[1.35rem] font-black tracking-tight text-[#FFF6E9]">
+          Gastro<span className="text-[#F5B342]">Flow</span>
+        </span>
+        <span className="font-secondary mt-1 hidden text-[0.58rem] font-bold uppercase tracking-[0.28em] text-[#E26A2C] sm:block">
+          Restaurant OS
+        </span>
+      </span>
+    </span>
+  );
+}
+
 export function GastroMark({ className }: { className?: string }) {
   return (
     <span className={cn("relative grid place-items-center rounded-full border-2 border-[#F5B342] text-[#F5B342]", className)}>

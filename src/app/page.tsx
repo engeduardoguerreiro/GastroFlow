@@ -19,7 +19,7 @@ import {
   Truck,
   type LucideIcon,
 } from "lucide-react";
-import { BrandLogo } from "@/components/brand-logo";
+import { BrandLogo, BrandNavLogo } from "@/components/brand-logo";
 
 const modules: Array<[string, string, LucideIcon]> = [
   ["Pedidos centralizados", "PDV, site, delivery e marketplaces em uma fila operacional.", ClipboardList],
@@ -49,7 +49,7 @@ export default function LandingPage() {
       <header className="sticky top-0 z-30 border-b border-white/10 bg-[#0F1720]/82 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3">
           <Link href="/" aria-label="GastroFlow">
-            <BrandLogo className="h-9 w-auto" priority />
+            <BrandNavLogo priority />
           </Link>
           <div className="font-secondary hidden items-center gap-7 text-sm font-semibold text-slate-300 lg:flex">
             <a href="#plataforma" className="hover:text-[#F5B342]">Plataforma</a>
