@@ -15,8 +15,8 @@ export function BrandLogo({
     <Image
       src="/brand/gastroflow-logo-alpha-cropped.png"
       alt="GastroFlow"
-      width={985}
-      height={759}
+      width={1006}
+      height={781}
       priority={priority}
       className={cn("h-auto w-auto object-contain", className)}
     />
