@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GastroFlow
 
-## Getting Started
+MVP SaaS para restaurantes, bares, pizzarias, hamburguerias e deliveries, criado com Next.js App Router, TypeScript, Tailwind CSS e Supabase.
 
-First, run the development server:
+## Funcionalidades
+
+- Landing page pública com planos e CTA.
+- Login e cadastro com criação do primeiro restaurante.
+- Multiempresa por `restaurant_id`.
+- Dashboard com métricas, últimos pedidos e status da loja.
+- CRUD funcional de categorias e produtos.
+- PDV com carrinho e criação de `orders` + `order_items`.
+- Cardápio público por slug em `/r/[slug]` com envio de pedido para o painel.
+- Kanban/lista de pedidos com alteração de status.
+- Tela de integrações para iFood, 99Food, Keeta, Rappi, WhatsApp e webhook.
+- Providers mockados em `src/lib/integrations/providers/*`.
+- Endpoint `POST /api/integrations/webhook/[provider]`.
+- SQL completo com tabelas, enums, triggers, grants, índices e RLS.
+
+## Como rodar
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configurar Supabase
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Crie um projeto no Supabase.
+2. No SQL Editor, aplique o arquivo `supabase/schema.sql`.
+3. Em Project Settings > API, copie:
+   - `Project URL` para `NEXT_PUBLIC_SUPABASE_URL`
+   - `anon public` para `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `service_role` para `SUPABASE_SERVICE_ROLE_KEY`
+4. Configure autenticação por email/senha em Authentication > Providers.
 
-## Learn More
+As políticas RLS garantem que usuários autenticados só acessem dados dos restaurantes onde estão em `restaurant_users`. As rotas públicas leem apenas restaurante/cardápio e permitem criar pedidos de origem `site`.
 
-To learn more about Next.js, take a look at the following resources:
+## Variáveis de ambiente
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`SUPABASE_SERVICE_ROLE_KEY` fica apenas no servidor e é usada no webhook interno para registrar pedidos externos e logs.
 
-## Deploy on Vercel
+## Integrações futuras
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+A arquitetura está preparada em:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/lib/integrations/providers/ifood.ts`
+- `src/lib/integrations/providers/food99.ts`
+- `src/lib/integrations/providers/keeta.ts`
+- `src/lib/integrations/providers/rappi.ts`
+- `src/lib/integrations/providers/webhook.ts`
+
+Cada provider expõe:
+
+- `connect()`
+- `testConnection()`
+- `fetchOrders()`
+- `acceptOrder()`
+- `rejectOrder()`
+- `updateOrderStatus()`
+- `syncMenu()`
+- `parseExternalOrder()`
+
+Quando houver credenciais reais, substitua o mock por chamadas HTTP oficiais, mantendo o contrato dos providers.
+
+## Webhook interno
+
+Endpoint:
+
+```http
+POST /api/integrations/webhook/[provider]
+```
+
+Providers válidos: `ifood`, `99food`, `keeta`, `rappi`, `webhook`.
+
+Envie `x-restaurant-id` no header ou `restaurant_id` no payload. O endpoint registra em `integration_logs`, converte o payload para pedido interno e cria `orders`/`order_items`.
+
+## Deploy na Vercel
+
+1. Configure as variáveis de ambiente na Vercel.
+2. Rode build local:
+
+```bash
+npm run build
+```
+
+3. Faça o deploy pelo painel da Vercel ou pelo conector/CLI.
+
+## Observações de MVP
+
+Caixa, mesas, clientes e relatórios já possuem telas conectadas ao banco e estrutura pronta. Alguns fluxos avançados, como fechar comanda e sumarização de produtos mais vendidos, estão preparados para evolução incremental.

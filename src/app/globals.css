@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f1720;
+  --foreground: #fff6e9;
+  --night: #0f1720;
+  --copper: #e26a2c;
+  --amber: #f5b342;
+  --cream: #fff6e9;
+  --success: #22c55e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top left, rgba(226, 106, 44, 0.18), transparent 34rem),
+    radial-gradient(circle at 80% 10%, rgba(245, 179, 66, 0.1), transparent 26rem),
+    linear-gradient(135deg, #0f1720 0%, #111827 48%, #0b111a 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.glass {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(15, 23, 32, 0.78);
+  box-shadow: 0 18px 50px rgba(2, 6, 23, 0.22);
+  backdrop-filter: blur(16px);
+}
+
+.card-light {
+  border: 1px solid rgba(226, 106, 44, 0.14);
+  background: rgba(255, 246, 233, 0.96);
+  color: #0f1720;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.field {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  background: rgba(15, 23, 32, 0.72);
+  padding: 0.75rem 0.9rem;
+  color: #fff6e9;
+  outline: none;
+}
+
+.field:focus {
+  border-color: #e26a2c;
+  box-shadow: 0 0 0 3px rgba(226, 106, 44, 0.18);
+}
+
+.field-light {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(15, 23, 32, 0.13);
+  background: #fffdfa;
+  padding: 0.75rem 0.9rem;
+  color: #0f1720;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #e26a2c, #f5b342);
+  padding: 0.75rem 1rem;
+  color: #0f1720;
+  font-weight: 700;
+  box-shadow: 0 16px 32px rgba(226, 106, 44, 0.22);
+}
+
+.btn-muted {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(226, 106, 44, 0.22);
+  padding: 0.75rem 1rem;
+  color: inherit;
+}
+
+.brand-kicker {
+  color: #e26a2c;
+  font-family: var(--font-inter);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.font-secondary {
+  font-family: var(--font-inter);
 }

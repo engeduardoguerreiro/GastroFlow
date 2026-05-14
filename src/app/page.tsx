@@ -1,65 +1,116 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, BadgeCheck, ClipboardList, CreditCard, Globe2, Martini, Pizza, Plug, QrCode, Smartphone, Store, Truck, type LucideIcon } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 
-export default function Home() {
+const highlights: Array<[string, LucideIcon]> = [
+  ["Pedidos centralizados", ClipboardList],
+  ["Cardápio digital", QrCode],
+  ["Site próprio para delivery", Globe2],
+  ["PDV simples", CreditCard],
+  ["Mesas e comandas", Store],
+  ["Integração futura com iFood, 99Food, Keeta e outros", Plug],
+];
+
+const plans: Array<[string, string, string[]]> = [
+  ["Básico", "R$ 49,90", ["Cardápio digital", "Pedidos manuais", "Site próprio", "Clientes"]],
+  ["Profissional", "R$ 89,90", ["Tudo do Básico", "PDV", "Mesas/comandas", "Delivery", "Caixa", "Relatórios básicos"]],
+  ["Premium", "R$ 149,90", ["Tudo do Profissional", "Integrações com marketplaces", "Webhooks", "Múltiplos usuários", "Suporte prioritário"]],
+];
+
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5">
+        <Link href="/" className="flex items-center gap-3">
+          <BrandLogo className="w-48" priority />
+        </Link>
+        <div className="flex gap-2">
+          <Link href="/login" className="btn-muted">Entrar</Link>
+          <Link href="/register" className="btn-primary">Começar agora</Link>
+        </div>
+      </nav>
+
+      <section className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+        <div>
+          <p className="brand-kicker mb-4 inline-flex rounded-full border border-[#E26A2C]/30 bg-[#E26A2C]/10 px-4 py-2">
+            Built for restaurants. Designed to flow.
           </p>
+          <h1 className="max-w-4xl text-4xl font-black leading-tight md:text-6xl">
+            Operações mais inteligentes. Clientes mais satisfeitos.
+          </h1>
+          <p className="font-secondary mt-6 max-w-2xl text-lg text-slate-300">
+            Software de gestão para restaurantes com pedidos centralizados, cardápio digital, PDV, mesas, delivery e integrações preparadas para marketplaces.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/register" className="btn-primary">Começar agora <ArrowRight className="h-4 w-4" /></Link>
+            <Link href="/dashboard" className="btn-muted">Ver demonstração</Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="glass rounded-[2rem] p-5">
+          <div className="rounded-[1.5rem] bg-[#FFF6E9] p-5 text-[#0F1720]">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-bold text-slate-500">Hoje</p>
+                <h2 className="text-2xl font-black">Operação ao vivo</h2>
+              </div>
+              <span className="rounded-full bg-[#22C55E]/15 px-3 py-1 text-sm font-bold text-[#148A42]">Aberto</span>
+            </div>
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              {["42 pedidos", "R$ 3.840", "12 em preparo", "89 produtos"].map((item) => (
+                <div key={item} className="rounded-2xl bg-white p-4 font-black shadow-sm">{item}</div>
+              ))}
+            </div>
+            <div className="mt-5 space-y-3">
+              {["#1024 Site - Pizza grande", "#1025 PDV - Smash burger", "#1026 iFood - Combo almoço"].map((item) => (
+                <div key={item} className="flex items-center justify-between rounded-2xl border border-slate-200 p-4">
+                  <span className="font-bold">{item}</span>
+                  <Smartphone className="h-5 w-5 text-[#E26A2C]" />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="bg-[#FFF6E9] py-16 text-[#0F1720]">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="grid gap-4 md:grid-cols-3">
+            {highlights.map(([label, Icon]) => (
+              <div key={label} className="rounded-2xl border border-[#0F1720]/10 bg-white/70 p-5 shadow-sm">
+                <Icon className="mb-4 h-7 w-7 text-[#E26A2C]" />
+                <h3 className="font-black">{label}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16">
+        <h2 className="text-3xl font-black">Planos simples para começar</h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {plans.map(([name, price, features]) => (
+            <div key={name} className="glass rounded-2xl p-6">
+              <h3 className="text-xl font-black">{name}</h3>
+              <p className="mt-3 text-3xl font-black text-[#F5B342]">{price}<span className="text-sm text-slate-300">/mês</span></p>
+              <ul className="mt-6 space-y-3 text-sm text-slate-200">
+                {features.map((feature) => <li key={feature} className="flex gap-2"><BadgeCheck className="h-5 w-5 text-emerald-400" />{feature}</li>)}
+              </ul>
+              <Link href="/register" className="btn-primary mt-6 w-full">Assinar</Link>
+            </div>
+          ))}
+        </div>
+      </section>
+      <footer className="border-t border-white/10 bg-[#0F1720]">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-6 text-sm text-slate-300">
+          <BrandLogo className="w-36" />
+          <div className="font-secondary flex flex-wrap gap-6 uppercase tracking-[0.2em]">
+            <span className="flex items-center gap-2"><Pizza className="h-4 w-4 text-[#E26A2C]" /> Pizzarias</span>
+            <span className="flex items-center gap-2"><Martini className="h-4 w-4 text-[#F5B342]" /> Bares</span>
+            <span className="flex items-center gap-2"><Store className="h-4 w-4 text-[#E26A2C]" /> Restaurantes</span>
+            <span className="flex items-center gap-2"><Truck className="h-4 w-4 text-[#22C55E]" /> Deliveries</span>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
