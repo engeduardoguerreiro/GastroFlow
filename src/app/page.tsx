@@ -22,7 +22,7 @@ export default function LandingPage() {
     <main className="min-h-screen">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5">
         <Link href="/" className="flex items-center gap-3">
-          <BrandLogo className="w-48" priority />
+          <BrandLogo className="h-16 w-auto" priority />
         </Link>
         <div className="flex gap-2">
           <Link href="/login" className="btn-muted">Entrar</Link>
@@ -102,7 +102,7 @@ export default function LandingPage() {
       </section>
       <footer className="border-t border-white/10 bg-[#0F1720]">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-6 text-sm text-slate-300">
-          <BrandLogo className="w-36" />
+          <BrandLogo className="h-12 w-auto" />
           <div className="font-secondary flex flex-wrap gap-6 uppercase tracking-[0.2em]">
             <span className="flex items-center gap-2"><Pizza className="h-4 w-4 text-[#E26A2C]" /> Pizzarias</span>
             <span className="flex items-center gap-2"><Martini className="h-4 w-4 text-[#F5B342]" /> Bares</span>

@@ -30,7 +30,7 @@ export async function AppShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-[#FFF6E9] text-[#0F1720]">
       <aside className="fixed inset-y-0 left-0 hidden w-72 border-r border-white/10 bg-[#0F1720] p-5 text-white lg:block">
         <Link href="/dashboard" className="flex items-center gap-3 rounded-2xl bg-white/5 p-3">
-          <BrandLogo className="w-40" priority />
+          <BrandLogo className="h-16 w-auto" priority />
           <span>
             <small className="text-slate-400">{restaurant.name}</small>
           </span>

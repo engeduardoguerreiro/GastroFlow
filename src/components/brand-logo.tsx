@@ -1,27 +1,25 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function BrandLogo({
   className,
   priority,
-  showTagline = false,
+  showTagline: _showTagline = false,
 }: {
   className?: string;
   priority?: boolean;
   showTagline?: boolean;
 }) {
-  void priority;
+  void _showTagline;
   return (
-    <div className={cn("inline-flex items-center gap-3", className)}>
-      <GastroMark className="h-11 w-11 shrink-0" />
-      <span className="leading-none">
-        <span className="block text-2xl font-black tracking-tight text-current">GastroFlow</span>
-        {showTagline && (
-          <span className="font-secondary mt-1 block text-[0.62rem] font-bold uppercase tracking-[0.22em] text-[#E26A2C]">
-            Operações inteligentes
-          </span>
-        )}
-      </span>
-    </div>
+    <Image
+      src="/brand/gastroflow-logo-alpha-cropped.png"
+      alt="GastroFlow"
+      width={985}
+      height={759}
+      priority={priority}
+      className={cn("h-auto w-auto object-contain", className)}
+    />
   );
 }
 
